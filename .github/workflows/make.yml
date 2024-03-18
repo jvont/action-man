@@ -13,15 +13,6 @@ jobs:
         ref: 'main'
         token: ${{ github.token }}
 
-    - name: ls new place
-      run: ls
-
-    - name: make
-      run: make telegraph
-
-    - name: ls make
-      run: ls
-
     - name: configure git
       run: |
         git config user.name "GitHub Actions Bot"
