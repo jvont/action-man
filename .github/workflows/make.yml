@@ -14,8 +14,8 @@ jobs:
 
     - name: configure git
       run: |
-        git config user.name "GitHub Actions Bot"
-        git config user.email "<>"
+        git config user.name "jvont"
+        git config user.email "johannvont@gmail.com"
     
     - name: push build artifacts
       run: |
