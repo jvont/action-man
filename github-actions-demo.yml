@@ -1,0 +1,37 @@
+name: Build and export
+run-name: ${{ github.actor }} building and exporting
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steaps:
+      -run: echo "Hello, world!"
+    # steps:
+    # - name: checkout code
+    #   uses: actions/checkout@v4
+      
+    # - name: Setup .NET
+    #   uses: actions/setup-dotnet@v4
+    #   with:
+    #     dotnet-version: 6.0
+    # - name: Restore dependencies
+    #   run: dotnet restore
+    # - name: Build
+    #   run: dotnet build --no-restore "Razor MVC project/Razor MVC project.csproj"
+      
+    # - name: Publish
+    #   run: dotnet publish -c Release -o published_build
+ 
+    # - name: Push Build Result
+    #   run: |
+    #       # Commit the build artifacts
+    #         git config --global user.email "harryt1905@gmail.com"
+    #         git config --global user.name "harry-th"
+    #         git config --unset-all http.https://github.com/.extraheader
+    #         git add .
+    #         git commit -m "Add new build"
+    #         # Push the changes to another repository
+    #         git push https://harry-th:${{ secrets.ACCESS_TOKEN }}@github.com/harry-th/tobacco.git main
+    #   working-directory: "./published_build"
