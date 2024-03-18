@@ -21,6 +21,8 @@ jobs:
 
     - name: push build artifacts
       run: |
+        git config --get user.name
+        git config --get user.email
         echo "beans" >> README.md
         git add -f README.md
         git commit -m "test build"
