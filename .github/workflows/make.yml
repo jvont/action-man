@@ -12,10 +12,14 @@ jobs:
         repository: jvont/telegram-boy
         ref: 'main'
 
+    - name: configure git
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+
     - name: push build artifacts
       run: |
         echo "beans" >> README.md
         git add -f README.md
         git commit -m "test build"
         git push -f -u origin main
-
