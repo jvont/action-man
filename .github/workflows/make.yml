@@ -4,14 +4,6 @@ on:
   push:
     branches: [ "main" ]
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: make
-      run: make telegraph
-
   push:
     runs-on: ubuntu-latest
     steps:
@@ -19,6 +11,10 @@ jobs:
       with:
         repository: jvont/telegram-boy
         ref: 'main'
+        token: ${{ github.token }}
+
+    - name: make
+      run: make telegraph
 
     - name: configure git
       run: |
