@@ -3,8 +3,7 @@ CC?=gcc
 CFLAGS ?=
 LDFLAGS ?=
 
-CFLAGS += -I. -Ihttp-parser
-# LDFLAGS += -Lhttp-parser -lhttp_parser
+CFLAGS += -I.
 
 telegraph: telegraph.o
 	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
