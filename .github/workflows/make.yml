@@ -27,7 +27,7 @@ jobs:
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
     
-    -name: push build artifacts
+    - name: push build artifacts
       run: |
         git add -f *.o telegraph
         git commit -m "test build"
