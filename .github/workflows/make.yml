@@ -4,14 +4,6 @@ on:
   push:
     branches: [ "main" ]
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: make
-      run: make telegraph
-
   push:
     runs-on: ubuntu-latest
     steps:
@@ -21,17 +13,20 @@ jobs:
         ref: 'main'
         token: ${{ github.token }}
 
+    - name: ls new place
+      run: ls
+
     - name: make
       run: make telegraph
+
+    - name: ls make
+      run: ls
 
     - name: configure git
       run: |
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
     
-    - name: test
-      run: ls
-
     - name: push build artifacts
       run: |
         echo "beans" >> README.md
