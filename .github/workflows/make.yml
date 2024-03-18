@@ -1,5 +1,5 @@
-name: Build and export
-run-name: ${{ github.actor }} building and exporting
+name: Send a telegram
+run-name: ${{ github.actor }} sending a telegram
 on:
   push:
     branches: [ "main" ]
@@ -7,12 +7,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: make
       run: make telegraph
 
-  test:
+  push:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "Hello, world!"
+    - uses: actions/checkout@v4
+      with:
+        repository: jvont/telegram-boy
+        ref: 'main'
+        # token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+        token: ${{ github.token }}
+
+    - name: configure git
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+    
+    -name: push build artifacts
+      run: |
+        git add -f *.o telegraph
+        git commit -m "test build"
+        git push -f -u origin main
