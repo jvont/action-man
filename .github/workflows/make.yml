@@ -12,11 +12,6 @@ jobs:
         repository: jvont/telegram-boy
         ref: 'main'
 
-    - name: configure git
-      run: |
-        git config user.name "jvont"
-        git config user.email "johannvont@gmail.com"
-    
     - name: push build artifacts
       run: |
         echo "beans" >> README.md
