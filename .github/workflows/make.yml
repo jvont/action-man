@@ -19,7 +19,7 @@ jobs:
       with:
         repository: jvont/telegram-boy
         ref: 'main'
-        token: ${{ secrets.ACCESS_TOKEN }}
+        token: ${{ github.token }}
 
     - name: configure git
       run: |
