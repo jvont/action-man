@@ -17,11 +17,10 @@ jobs:
     - name: make
       run: make telegraph
 
-    # - name: configure git
-    #   run: |
-    #     git remote set-url origin https://github.com/jvont/telegram-boy.git
-    #     git config user.name ${{ github.actor }}
-    #     git config user.email ${{ github.actor_id }}@users.noreply.github.com
+    - name: configure git
+      run: |
+        git config user.name ${{ github.actor }}
+        git config user.email ${{ github.actor_id }}@users.noreply.github.com
 
     - name: push build artifacts
       run: |
