@@ -24,7 +24,7 @@ jobs:
         git config user.email ${{ github.actor_id }}@users.noreply.github.com
         git config --unset-all http.https://github.com/.extraheader
 
-    -run: git remote get-url origin
+    - run: git remote get-url origin
 
     - name: push build artifacts
       run: |
