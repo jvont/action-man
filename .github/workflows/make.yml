@@ -18,6 +18,7 @@ jobs:
     - name: make
       run: make telegraph
 
+
     - name: configure git
       run: |
         git config --unset-all http.https://github.com/.extraheader
