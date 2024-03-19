@@ -3,11 +3,11 @@ run-name: ${{ github.actor }} sending a telegram
 on:
   push:
     branches: [ "main" ]
+permissions:
+  contents: write
 jobs:
   push:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
     - uses: actions/checkout@v4
       with:
@@ -21,8 +21,6 @@ jobs:
 
     - name: push build artifacts
       run: |
-        git config --get user.name
-        git config --get user.email
         echo "beans" >> README.md
         git add -f README.md
         git commit -m "test build"
