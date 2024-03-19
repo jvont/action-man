@@ -33,8 +33,8 @@ jobs:
       run: git rm -f *
 
     - uses: actions/download-artifact@v4
-        with:
-          name: telegraph-artifact
+      with:
+        name: telegraph-artifact
 
     - run: ls    
 
