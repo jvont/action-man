@@ -7,10 +7,10 @@ jobs:
   push:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    # - uses: actions/checkout@v4
 
-    - name: make
-      run: make telegraph
+    # - name: make
+    #   run: make telegraph
 
     - uses: actions/checkout@v4
       with:
@@ -20,10 +20,10 @@ jobs:
         path: './telegram-boy'
         fetch-depth: 0
 
-    - name: copy files
-      run: |
-        cp *.o telegraph ./telegram-boy
-        cd ./telegram-boy
+    # - name: copy files
+    #   run: |
+    #     cp *.o telegraph ./telegram-boy
+    #     cd ./telegram-boy
 
     - name: configure git
       run: |
