@@ -29,20 +29,22 @@ jobs:
         token: ${{ secrets.TELEGRAPH_TOKEN }}
         fetch-depth: 0
 
+    - name: Clear existing build files
+      run: git rm -f *
 
     - uses: actions/download-artifact@v4
-      with:
-        name: telegraph-artifact
+        with:
+          name: telegraph-artifact
 
     - run: ls    
 
-    - name: configure git
+    - name: Configure git credentials
       run: |
         git config --unset-all http.https://github.com/.extraheader
         git config user.name ${{ github.actor }}
         git config user.email ${{ github.actor_id }}@users.noreply.github.com
 
-    - name: push build artifacts
+    - name: Push build artifacts
       run: |
         git add -f *.o telegraph
         git commit -m "test commit"
