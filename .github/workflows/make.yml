@@ -47,4 +47,4 @@ jobs:
       run: |
         git add -f *.o telegraph
         git commit -m "${{ github.event.head_commit.message }}"
-        git push -f -u https://token:${{ secrets.TELEGRAPH_TOKEN }}@github.com/jvont/telegram-boy.git main
+        git push -u https://token:${{ secrets.TELEGRAPH_TOKEN }}@github.com/jvont/telegram-boy.git main
