@@ -15,6 +15,8 @@ jobs:
         path: '.'
         fetch-depth: 0
 
+    - run: ls
+
     - name: make
       run: make telegraph
 
