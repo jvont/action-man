@@ -189,7 +189,7 @@ int main() {
 
   morse_branch tree[MAX_CODE_BRANCHES];
   morse_tree_init(tree);
-  morse_tree_test(tree);
+  // morse_tree_test(tree);
 
   int c;
   while ((c = getchar()) != 27 /* ASCII ESC */) {
