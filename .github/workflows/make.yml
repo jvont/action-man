@@ -20,7 +20,7 @@ jobs:
 
     - name: configure git
       run: |
-        git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | \xargs -L1 git config --unset-all
+        git config --unset-all http.https://github.com/.extraheader
         git config user.name ${{ github.actor }}
         git config user.email ${{ github.actor_id }}@users.noreply.github.com
 
