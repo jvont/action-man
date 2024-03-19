@@ -1,12 +1,12 @@
 CC?=gcc
 
 CFLAGS ?=
-LDFLAGS ?=
+LDFLAGS ?= -lncurses
 
 CFLAGS += -I.
 
-telegraph: telegraph.o
-	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
+telegraph: telegraph.o morse_tree.o
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
 .PHONY: clean
 clean:
