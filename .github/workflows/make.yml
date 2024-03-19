@@ -11,7 +11,7 @@ jobs:
       with:
         repository: jvont/telegram-boy
         ref: 'main'
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
         path: '.'
         fetch-depth: 0
 
@@ -24,11 +24,11 @@ jobs:
         git config user.email ${{ github.actor_id }}@users.noreply.github.com
         git config --unset-all http.https://github.com/.extraheader
 
-    - run: git remote get-url origin
+    # - run: git remote get-url origin
+    # - run: get remote set-url origin https://github.com/jvont/telegraph.git
 
     - name: push build artifacts
       run: |
         git add -f *.o telegraph
         git commit -m "test commit"
         git push -f -u origin main
-
