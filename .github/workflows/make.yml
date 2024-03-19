@@ -14,6 +14,9 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         path: '.'
 
+    - name: make
+      run: make telegraph
+
     # - name: configure git
     #   run: |
     #     git remote set-url origin https://github.com/jvont/telegram-boy.git
