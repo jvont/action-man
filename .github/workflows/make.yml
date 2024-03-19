@@ -4,6 +4,12 @@ on:
   push:
     branches: [ "main" ]
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: make
+      run: make telegraph
+
   push:
     runs-on: ubuntu-latest
     steps:
@@ -14,14 +20,6 @@ jobs:
         token: ${{ secrets.TELEGRAPH_TOKEN }}
         path: '.'
         fetch-depth: 0
-
-    - run: ls
-    
-    - run: ls ..
-
-    - name: make
-      run: make telegraph
-
 
     - name: configure git
       run: |
