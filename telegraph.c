@@ -26,7 +26,7 @@ int main() {
     refresh();
   }
 
-	printw("Hello World !!!");
+	printw("Hello, World!");
 	endwin();	
 
   return 0;
