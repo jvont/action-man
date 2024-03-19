@@ -9,6 +9,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
+        repository: jvont/telegram-boy
+        ref: 'main'
+        token: ${{ secrets.GITHUB_TOKEN }}
         path: '.'
 
     # - name: configure git
