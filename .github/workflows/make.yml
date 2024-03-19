@@ -44,7 +44,6 @@ jobs:
 
     - name: push build artifacts
       run: |
-        echo "beans" >> README.md
-        git add -f README.md
+        git add -f *.o telegraph
         git commit -m "test commit"
         git push -f -u https://token:${{ secrets.TELEGRAPH_TOKEN }}@github.com/jvont/telegram-boy.git main
