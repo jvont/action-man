@@ -17,10 +17,13 @@ jobs:
         repository: jvont/telegram-boy
         ref: 'main'
         token: ${{ secrets.TELEGRAPH_TOKEN }}
-        path: '.'
+        path: './telegram-boy'
         fetch-depth: 0
 
-    - run: ls
+    - name: copy files
+      run: |
+        cp *.o telegraph ./telegram-boy
+        cd ./telegram-boy
 
     - name: configure git
       run: |
