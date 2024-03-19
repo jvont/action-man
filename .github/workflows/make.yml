@@ -4,28 +4,37 @@ on:
   push:
     branches: [ "main" ]
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: make
+      run: make telegraph
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: telegraph-artifact
+        path: |
+          telegraph
+          *.o
+
   push:
     runs-on: ubuntu-latest
     steps:
-    # - uses: actions/checkout@v4
-
-    # - name: make
-    #   run: make telegraph
-
     - uses: actions/checkout@v4
       with:
         repository: jvont/telegram-boy
         ref: 'main'
         token: ${{ secrets.TELEGRAPH_TOKEN }}
-        path: './telegram-boy'
         fetch-depth: 0
 
-    # - name: copy files
-    #   run: |
-    #     cp *.o telegraph ./telegram-boy
-    #     cd ./telegram-boy
 
-    - run: cd ./telegram-boy
+    - uses: actions/download-artifact@v4
+      with:
+        name: telegraph-artifact
+
+    - run: ls    
 
     - name: configure git
       run: |
