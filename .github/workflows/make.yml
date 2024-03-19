@@ -7,6 +7,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
+
     - name: make
       run: make telegraph
 
@@ -20,6 +22,8 @@ jobs:
         token: ${{ secrets.TELEGRAPH_TOKEN }}
         path: '.'
         fetch-depth: 0
+
+    - run: ls
 
     - name: configure git
       run: |
