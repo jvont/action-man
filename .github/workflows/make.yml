@@ -11,7 +11,7 @@ jobs:
 
     - name: configure git
       run: |
-        git remote set-url origin https://github.com/jvont/telegram-boy
+        git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/jvont/telegram-boy
         git config --unset-all http.https://github.com/.extraheader
         git config user.name ${{ github.actor }}
         git config user.email ${{ github.actor_id }}@users.noreply.github.com
