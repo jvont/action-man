@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -18,9 +18,6 @@ jobs:
           telegraph
           *.o
 
-  push:
-    runs-on: ubuntu-latest
-    steps:
     - uses: actions/checkout@v4
       with:
         repository: jvont/telegram-boy
