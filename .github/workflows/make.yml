@@ -11,6 +11,7 @@ jobs:
 
     - name: configure git
       run: |
+        git remote add output https://github.com/jvont/telegram-boy
         git config user.name ${{ github.actor }}
         git config user.email ${{ github.actor_id }}@users.noreply.github.com
 
@@ -19,4 +20,4 @@ jobs:
         echo "beans" >> README.md
         git add -f README.md
         git commit -m "test commit"
-        git push -f -u origin main
+        git push -f -u output main
