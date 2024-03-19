@@ -20,7 +20,7 @@ jobs:
         repository: jvont/telegram-boy
         ref: 'main'
         token: ${{ secrets.TELEGRAPH_TOKEN }}
-        path: '.'
+        path: './telegram-boy'
         fetch-depth: 0
 
     - run: ls
