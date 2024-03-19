@@ -13,6 +13,7 @@ jobs:
         ref: 'main'
         token: ${{ secrets.GITHUB_TOKEN }}
         path: '.'
+        fetch-depth: 0
 
     - name: make
       run: make telegraph
