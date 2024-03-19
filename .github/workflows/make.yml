@@ -3,11 +3,11 @@ run-name: ${{ github.actor }} sending a telegram
 on:
   push:
     branches: [ "main" ]
-permissions:
-  contents: write
 jobs:
   push:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v4
       with:
@@ -17,8 +17,8 @@ jobs:
 
     - name: configure git
       run: |
-        git config --global user.name "jvont"
-        git config --global user.email "johannvont@gmail.com"
+        git config user.name ${{ github.actor }}
+        git config user.email ${{ github.actor_id }}@users.noreply.github.com
 
     - name: push build artifacts
       run: |
