@@ -25,6 +25,8 @@ jobs:
     #     cp *.o telegraph ./telegram-boy
     #     cd ./telegram-boy
 
+    - run: cd ./telegram-boy
+
     - name: configure git
       run: |
         git config --unset-all http.https://github.com/.extraheader
