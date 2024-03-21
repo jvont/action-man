@@ -1,8 +1,8 @@
 name: Send a telegram
 run-name: ${{ github.actor }} sending a telegram
-on:
-  push:
-    branches: [ "main" ]
+# on:
+#   push:
+#     branches: [ "main" ]
 jobs:
   build:
     runs-on: ubuntu-latest

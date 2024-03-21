@@ -1,12 +1,13 @@
 CC?=gcc
 
 CFLAGS ?=
-LDFLAGS ?= -lncurses
+LIBS ?= 
 
-CFLAGS += -I.
+LIBS += -lncurses `sdl2-config --libs`
+CFLAGS += -I. `sdl2-config --cflags`
 
 telegraph: telegraph.o morse_tree.o
-	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $^ -o $@ $(LIBS)
 
 .PHONY: clean
 clean:
