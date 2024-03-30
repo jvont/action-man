@@ -13,10 +13,9 @@
 int kd_raw_init() {}
 
 int main() {
-
   // morse_branch tree[MAX_CODE_BRANCHES];
   // morse_tree_init(tree);
-  // // morse_tree_test(tree);
+  // morse_tree_test(tree);
 
   int ch, prev;
   struct timespec t0, t1;
@@ -49,29 +48,27 @@ int main() {
     //   perror("clock_gettime()");
     // }
 
-    while (1) {
-      int n = read(fd, buf, sizeof(buf));
-      printf("Read: %d\n", n);
-      int i = 0;
-      while (i < n) {
-        int kc;
-        char *s;
+    int n = read(fd, buf, sizeof(buf));
+    printf("Read: %d\n", n);
+    int i = 0;
+    while (i < n) {
+      int kc;
+      char *s;
 
-        s = (buf[i] & 0x80) ? "release" : "press";
+      s = (buf[i] & 0x80) ? "release" : "press";
 
-        if (i + 2 < n && (buf[i] & 0x7f) == 0 && (buf[i + 1] & 0x80) != 0 &&
-            (buf[i + 2] & 0x80) != 0) {
-          kc = ((buf[i + 1] & 0x7f) << 7) | (buf[i + 2] & 0x7f);
-          i += 3;
-        } else {
-          kc = (buf[i] & 0x7f);
-          i++;
-        }
-        printf("keycode %3d %s\n", kc, s);
+      if (i + 2 < n && (buf[i] & 0x7f) == 0 && (buf[i + 1] & 0x80) != 0 &&
+          (buf[i + 2] & 0x80) != 0) {
+        kc = ((buf[i + 1] & 0x7f) << 7) | (buf[i + 2] & 0x7f);
+        i += 3;
+      } else {
+        kc = (buf[i] & 0x7f);
+        i++;
+      }
+      printf("keycode %3d %s\n", kc, s);
 
-        if (kc == 1) {
-          exit(0);
-        }
+      if (kc == 1) {
+        exit(0);
       }
     }
   }
