@@ -1,17 +1,28 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(telegraph)
+project(telegraph C)
 
-# Download SDL3 (!!)
+# CMake includes
 include(FetchContent)
-Set(FETCHCONTENT_QUIET FALSE)
+set(FETCHCONTENT_QUIET FALSE)
+
+# Download SDL3
 FetchContent_Declare(
-  SDL3
+  SDL
   GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
   GIT_TAG        main
   GIT_PROGRESS   TRUE
 )
-FetchContent_MakeAvailable(SDL3)
+FetchContent_MakeAvailable(SDL)
+
+# Download SDL2 TTF extension
+FetchContent_Declare(
+  SDL_ttf
+  GIT_REPOSITORY https://github.com/libsdl-org/SDL_ttf.git
+  GIT_TAG        main
+  GIT_PROGRESS   TRUE
+)
+FetchContent_MakeAvailable(SDL_ttf)
 
 # Find ncurses
 find_package(Curses REQUIRED)
@@ -22,11 +33,13 @@ add_library(morse_tree STATIC morse_tree.c)
 target_include_directories(morse_tree PUBLIC .)
 
 # Create exe
-add_executable(telegraph telegraph.c)
+add_executable(telegraph main.c)
 
 target_link_libraries(telegraph
     PRIVATE
+        m
         ${CURSES_LIBRARIES}
         morse_tree
         SDL3::SDL3
+        SDL3_ttf::SDL3_ttf
 )
